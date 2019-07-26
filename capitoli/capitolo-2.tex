@@ -3,8 +3,75 @@
 % !TEX root = ../tesi.tex
 
 %**************************************************************
-\chapter{Processi e metodologie}
-\label{cap:processi-metodologie}
+\chapter{Descrizione dello stage}
+\label{cap:descrizione-stage}
 
 %**************************************************************
-\section{Processo sviluppo prodotto}
+\section{Introduzione al progetto}\label{sec:progetto}
+
+Il progetto è nato dalla necessità dell'azienda \company di automatizzare il processo di configurazione del motore semantico di \emph{Engagent}\glsfirstoccur, il quale richiede la creazione manuale di \emph{synset}\glsfirstoccur e \emph{regole}\glsfirstoccur. Questo processo è economicamente fattibile e vantaggioso finché le dimensioni delle regole create sono ridotte, ma il costo cresce esponenzialmente con l'aumentare delle regole.\\
+Più regole rendono più precisa la chatbot, ma aumentano di conseguenza i sinset da inserire, aumentando i tempi di compilazione del'\emph{NLP}\glsfirstoccur da qualche giorno a settimane.\\
+Per risolvere questo problema, \company ha scomposto il processo nei seguenti \textit{task} da automatizzare:
+\begin{enumerate}
+    \item creazione delle \emph{regole}\glsfirstoccur;
+    \item creazione dei synset;
+    \item raffinamento dei risultati;
+    \item creazione del file di configurazione \emph{NLP} per il motore semantico;
+\end{enumerate}
+
+\subsection{Creazione delle regole}
+Questo task è il più difficile da automatizzare, perché richiede la definizione di \emph{match} contenenti categorie correlate tra loro. Inoltre, non esistono delle regole uguali per tutti, ma ogni settore ha regole diverse.\\
+La soluzione è stata trovata nell'intelligenza artificiale, più in particolare nel clustering. Tramite l'analisi di \emph{chat} e \textit{FAQs} archiviate, è possibile generare delle regole allo stato grezzo.\\
+Il problema è la bassa affidabilità dei risultati. Possibili soluzioni:
+\begin{itemize}
+    \item più dati in input (poco realizzabile nel breve periodo);
+    \item algoritmo più complesso (in lavorazione);
+    \item raffinamento manuale dei risultati (anche se manuale, richiede meno tempo di creare l'NLP da zero, soluzione migliore nel breve termine); 
+    \item raffinamento automatico dei risultati (tramite \emph{POS-tagging}) (buon compromesso tra il raffinamento manuale e le altre due soluzioni).
+\end{itemize}
+
+\subsection{Creazione dei synset}
+La creazione dei \emph{synset} è facilmente automatizzabile (se le regole sono già state create), in quanto basta trovare i sinonimi delle categorie.
+
+\subsection{Raffinamento dei risultati}
+I risultati dell'algoritmo di clustering devono essere ripuliti da \emph{stop-words} e regole prive di significato.
+
+\subsection{creazione dell'NLP}
+Adattamento dell'output dell'algoritmo di clustering al motore semantico di Engagent.
+
+%**************************************************************
+\section{Obbiettivi Aziendali}
+
+
+%**************************************************************
+\section{Obbiettivi personali}
+
+Volevo contribuire a un progetto software in ambito professionale, facendo contemporaneamente i primi passi nel mondo delle intelligenze artificiali.\\
+Il progetto proposto da PAT racchiudeva queste prerogative: sarei stato inserito in un progetto maturo e, con l'aiuto di esperti nel settore, avrei potuto lavorare con un algoritmo di clustering.   
+
+%**************************************************************
+\section{Pianificazione}
+Con l'aiuto del tutor aziendale ho redatto il piano di lavoro, che comprende 300 ore distribuite in 8 ore al giorno, per 5 giorni alla settimana.\\
+La pianificazione ha avuto delle modifiche durante l'avanzare del progetto, vista la sua natura "sperimentale". Per esempio, il linguaggio di programmazione Python è stato accordato assieme al tutor aziendale solamente dopo un'analisi approfondita del problema.
+Di seguito viene riportata l'ultima versione del piano di lavoro.
+\begin{itemize}
+    \item \textbf{I settimana:} studio della piattaforma \emph{Engagent};
+    \item \textbf{II settimana:} analisi e stesura del report riguradante il problema descritto in \ref{sec:progetto};
+    \item \textbf{III settimana:} ricerca e sperimentazione di possibili soluzioni già esistenti per automatizzare la generazione di sinonimi; analisi e progettazione dell' applicazione NLP-Generator;
+    \item \textbf{IV settimana:} preparazione dell'ambiente di lavoro; codifica di NLP-Generator; stesura di test di unità;
+    \item \textbf{V settimana:} codifica e miglioramento delle prestazioni di \emph{NLP-Generator}; verfica dei risultati di \emph{NLP-generator} da parte del tutor aziendale
+    \item \textbf{VI settimana:} analisi sul miglioramento dei risultati di \emph{NLP-Generator} e codifica; documentazione;
+    \item \textbf{VII settimana:} documentazione e validazione;
+    \item \textbf{VIII settimana:} collaudo.
+\end{itemize}
+
+%**************************************************************
+\section{Analisi dei rischi}
+
+Assieme al tutor aziendale abbiamo individuato alcuni rischi a cui si potrà andare incontro. Per ognuno è stata trovata una soluzione.
+
+\begin{risk}{Conflitti durante il testing e la modifica in Engagent}
+    \riskdescription{La piattaforma Engagent mette a disposizione un ambiente di testing, per provare le configurazioni prima di portarle in produzione. Se due persone lavorano sullo stesso \emph{NLP} è possibile che si generino dei conflitti dannosi all'interno del software.}
+    \risksolution{A ogni membro del team è stato assegnato un dominio su cui lavorare (un sotto-ambiente di testing) per evitare conflitti}
+    \label{risk:conflict_engagent} 
+\end{risk}
