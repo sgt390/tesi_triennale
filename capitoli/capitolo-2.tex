@@ -7,10 +7,10 @@
 \label{cap:descrizione-stage}
 
 %**************************************************************
-\section{Introduzione al progetto}\label{sec:progetto}
+\section{Il progetto}\label{sec:progetto}
 
 Il progetto è nato dalla necessità dell'azienda \company di automatizzare il processo di configurazione del motore semantico di \emph{Engagent}\glsfirstoccur, il quale richiede la creazione manuale di \emph{synset}\glsfirstoccur e \emph{regole}\glsfirstoccur. Questo processo è economicamente fattibile e vantaggioso finché le dimensioni delle regole create sono ridotte, ma il costo cresce esponenzialmente con l'aumentare delle regole.\\
-Più regole rendono più precisa la chatbot, ma aumentano di conseguenza i sinset da inserire, aumentando i tempi di compilazione del'\emph{NLP}\glsfirstoccur da qualche giorno a settimane.\\
+Più regole rendono più precisa la chatbot, ma incrementano di conseguenza i \glsfirstoccur{synset} da inserire, prolungando i tempi di compilazione del'\emph{NLP}\glsfirstoccur da qualche giorno a settimane.\\
 Per risolvere questo problema, \company ha scomposto il processo nei seguenti \textit{task} da automatizzare:
 \begin{enumerate}
     \item creazione delle \emph{regole}\glsfirstoccur;
@@ -41,13 +41,14 @@ Adattamento dell'output dell'algoritmo di clustering al motore semantico di Enga
 
 %**************************************************************
 \section{Obbiettivi Aziendali}
-
+L'obbiettivo di automatizzare il processo di configurazione di Engagent non è nato con il progetto di stage, ma qualche anno fa, mentre l'\textit{IA} diventava sempre più popolare. L'azienda attribuì questo compito a un team esterno. Il loro compito consisteva nel sviluppare un algoritmo di intelligenza artificiale, per la generazione di cluster contenenti gli ingredienti essenziali alla configurazione del motore semantico.\\
+Verso l'inizio dell'anno, i progressi fatti da questo team erano convincenti, quindi \company aveva l'intenzione di sperimentare l'integrazione di tali risultati con il proprio sistema.
 
 %**************************************************************
 \section{Obbiettivi personali}
 
-Volevo contribuire a un progetto software in ambito professionale, facendo contemporaneamente i primi passi nel mondo delle intelligenze artificiali.\\
-Il progetto proposto da PAT racchiudeva queste prerogative: sarei stato inserito in un progetto maturo e, con l'aiuto di esperti nel settore, avrei potuto lavorare con un algoritmo di clustering.   
+Durante la ricerca dell'azienda per lo stage, volevo contribuire a un progetto software in ambito professionale, facendo contemporaneamente i primi passi nel mondo delle intelligenze artificiali.\\
+Il progetto proposto da PAT racchiudeva queste prerogative: sarei stato inserito in un progetto maturo e, con l'aiuto di esperti nel settore, avrei potuto lavorare con degli algoritmi di clustering.   
 
 %**************************************************************
 \section{Pianificazione}
@@ -68,7 +69,7 @@ Di seguito viene riportata l'ultima versione del piano di lavoro.
 %**************************************************************
 \section{Analisi dei rischi}
 
-Assieme al tutor aziendale abbiamo individuato alcuni rischi a cui si potrà andare incontro. Per ognuno è stata trovata una soluzione.
+Assieme al tutor aziendale abbiamo individuato alcuni rischi a cui si potrà andare incontro. Per ognuno è stata trovata una soluzione:
 
 \begin{risk}{Conflitti durante il testing e la modifica in Engagent}
     \riskdescription{La piattaforma Engagent mette a disposizione un ambiente di testing, per provare le configurazioni prima di portarle in produzione. Se due persone lavorano sullo stesso \emph{NLP} è possibile che si generino dei conflitti dannosi all'interno del software.}
