@@ -84,6 +84,7 @@
 \usepackage{tabularx}                   % tabelle di larghezza prefissata                                    
 \usepackage{longtable}                  % tabelle su più pagine                                        
 \usepackage{ltxtable}                   % tabelle su più pagine e adattabili in larghezza
+\usepackage{float}
 
 \usepackage[toc, acronym]{glossaries}   % glossario
                                         % per includerlo nel documento bisogna:
@@ -109,8 +110,7 @@
 %**************************************************************
 \frontmatter
 \input{inizio-fine/frontespizio}
-\input{inizio-fine/colophon}
-\input{inizio-fine/dedica}
+\input{inizio-fine/colophon}%rimosso dedica%
 \input{inizio-fine/sommario}
 \input{inizio-fine/ringraziamenti}
 \input{inizio-fine/indici}
