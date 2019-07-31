@@ -19,7 +19,7 @@ Per risolvere questo problema, \company ha scomposto il processo nei seguenti \t
     \item creazione del file di configurazione \emph{NLP} per il motore semantico;
 \end{enumerate}
 
-\subsection{Creazione delle regole}
+\subsection{Creazione delle regole}\label{creazione_regole}
 Questo task è il più difficile da automatizzare, perché richiede la definizione di \emph{match} contenenti categorie correlate tra loro. Inoltre, non esistono delle regole uguali per tutti, ma ogni settore ha regole diverse.\\
 La soluzione è stata trovata nell'intelligenza artificiale, più in particolare nel clustering. Tramite l'analisi di \emph{chat} e \textit{FAQs} archiviate, è possibile generare delle regole allo stato grezzo.\\
 Il problema è la bassa affidabilità dei risultati. Possibili soluzioni:
@@ -65,14 +65,3 @@ Di seguito viene riportata l'ultima versione del piano di lavoro.
     \item \textbf{VII settimana:} documentazione e validazione;
     \item \textbf{VIII settimana:} collaudo.
 \end{itemize}
-
-%**************************************************************
-\section{Analisi dei rischi}
-
-Assieme al tutor aziendale abbiamo individuato alcuni rischi a cui si potrà andare incontro. Per ognuno è stata trovata una soluzione:
-
-\begin{risk}{Conflitti durante il testing e la modifica in Engagent}
-    \riskdescription{La piattaforma Engagent mette a disposizione un ambiente di testing, per provare le configurazioni prima di portarle in produzione. Se due persone lavorano sullo stesso \emph{NLP} è possibile che si generino dei conflitti dannosi all'interno del software.}
-    \risksolution{A ogni membro del team è stato assegnato un dominio su cui lavorare (un sotto-ambiente di testing) per evitare conflitti}
-    \label{risk:conflict_engagent} 
-\end{risk}

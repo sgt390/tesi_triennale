@@ -114,19 +114,18 @@ I casi d'uso sono aumentati durante tutta la durata dello stage. Durante lo svil
 \section{Tracciamento dei requisiti}
 
 Da un'attenta analisi dei requisiti e degli use case effettuata sul progetto è stata stilata la tabella che traccia i requisiti in rapporto agli use case.\\
-Il codice dei requisiti è così strutturato R[O/D][numero] dove:
+Il codice dei requisiti è così strutturato R[O/D][Num. requisito] dove:
 \begin{enumerate}
 	\item[R =] requisito
-    \item[F =] funzionale
+    \item[O =] obbligatorio
+    \item[D =] desiderabile 
 \end{enumerate}
-\newpage
 
-\begin{table}%
-\caption{Tabella del tracciamento dei requisti funzionali}
 \label{tab:requisiti-funzionali}
-\begin{tabularx}{\textwidth}{lXl}
-\hline\hline
-\textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
+\begin{longtable}{|l l l|}
+\caption{Tabella del tracciamento dei requisti funzionali}\\
+\hline
+\textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case} \\
 \hline
 RO-1     & L'utente può inserire un file Excel & UC1 \\
 RO-2     & L'utente può inserire un file Json & UC2 \\
@@ -138,13 +137,17 @@ RO-3.4   & L'utente può modificare le priorità dei match nella configurazione 
 RO-4     & L'utente può attivare o disattivare le funzionalità del programma & UC4 \\
 RO-4.1   & L'utente può abilitare lo \glsfirstoccur{stemming} sulle categorie & UC4.1 \\
 RO-4.2   & L'utente può disabilitare lo \glsfirstoccur{stemming} sulle categorie & UC4.1 \\
-RO-4.3   & L'utente può abilitare la valdiazione delle categorie, attraverso le frasi associate& UC4.2 \\
-RO-4.4   & L'utente può disabilitare la valdiazione delle categorie, attraverso le frasi associate & UC4.2 \\
-RO-4.5   & L'utente può abilitare la creazione dei cluster & UC4.3 \\
-RO-4.6   & L'utente può disabilitare la creazione dei cluster & UC4.4 \\
-RO-4.7   & L'utente può abilitare la creazione degli intent& UC4.5 \\
-RO-4.7   & L'utente può disabilitare la creazione degli intent& UC4.5 \\
-
+RO-4.3   & Valdiazione delle categorie, attraverso le frasi associate & UC4.2 \\
+RO-4.4   & valdiazione delle categorie, attraverso le frasi associate & UC4.2 \\
+RO-4.5   & Creazione dei \textit{cluster} & UC4.3 \\
+RO-4.6   & Creazione degli \textit{intent} & UC4.5 \\
+RO-5     & L'utente può creare un file contenente la configurazione & UC5\\
+RO-6     & le funzioni più importanti devono essere riutilizzabili & Tutor aziendale\\
+RO-7     & L'applicazione deve essere sviluppata in Python 3.7 & Tutor aziendale \\
+RD-1     & creazione di una configurazione estendendone una già esistente & UC7 \\
+RD-2     & caricare automaticamente una configurazione in \textit{Engagent} & UC6 \\
+RD-3     & esecuzione in tempo lineare rispetto alla grandezza del file & Tutor aziendale \\
+RD-4     & Il codice deve essere coperto da almeno 80\% di test di unità & Tutor aziendale \\
+RD-5     & Il codice deve rispettare lo stile pep8 & Obiettivo personale \\
 \hline
-\end{tabularx}
-\end{table}%
+\end{longtable}

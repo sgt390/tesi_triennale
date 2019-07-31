@@ -5,41 +5,94 @@
 %**************************************************************
 \chapter{Progettazione e codifica}
 \label{cap:progettazione-codifica}
-%**************************************************************
-
-\intro{Breve introduzione al capitolo}\\
 
 %**************************************************************
 \section{Tecnologie e strumenti}
 \label{sec:tecnologie-strumenti}
+\subsection*{Python}
+Python è un linguaggio di programmazione pensato per la ricerca. Per questo linguaggio sono stati sviluppati la maggior parte dei framework che trattano l'intelligenza artificiale (come TensorFlow). Questo vale anche per l'algoritmo di clustering presentato nell'introzione\ref{creazione_regole}.\\
+Assieme al tutor aziendale, abbiamo scelto questo linguaggio per il progetto di stage per più motivi:
+\begin{itemize}
+    \item per soddisfare il requisito di modularità del codice (RO-6) è necessario produrre del codice compatibile con l'algoritmo di clustering;
+    \item durante l'analisi del problema, ho scoperto l'esistenza di framework per il pos-tagging e la creazione dei synset sviluppati e ancora supportati in Python. (NLTK, TreeTagger);
+    \item Python non è adatto a progetti di grossa portata, ma va bene per uno di soli due mesi.
+\end{itemize}
 
-Di seguito viene data una panoramica delle tecnologie e strumenti utilizzati.
 
-\subsection*{Tecnologia 1}
-Descrizione Tecnologia 1.
+\subsection*{NLTK}
+Framework di python per la creazione di sinonimi, attraverso dizionari italiani e inglese.
 
-\subsection*{Tecnologia 2}
-Descrizione Tecnologia 2
+\subsection*{TreeTagger}
+Applicazione per l'estrazione dei lemma dalle parole. Viene adattato in Python attraverso \textit{TreeTaggerWrapper}.
 
-%**************************************************************
-\section{Ciclo di vita del software}
-\label{sec:ciclo-vita-software}
+\subsection*{Engagent}
+Piattaforma sviluppata da {\company} formata dalla chatbot, il motre semantico e alcuni servizi di supporto. \'E servita per eseguire i test di sistema e accettazione, in quanto target dei file di configurazione generati dalla applicazione sviluppata durante lo stage. 
 
 %**************************************************************
 \section{Progettazione}
 \label{sec:progettazione}
-
-\subsubsection{Namespace 1} %**************************
-Descrizione namespace 1.
+Durante lo stage, la progettazione è stata inserita all'interno del Manuale dello sviluppatore (documento in possesso di \company). Di seguito riporto tale progettazione, tralasciando però alcuni dettagli di implementazione, come richiesto dal tutor aziendale.
+\subsubsection{model} %**************************
+Le classi in \glsfirstoccur{model} rappresentano una configurazione \textit{NLP}.
 
 \begin{namespacedesc}
-    \classdesc{Classe 1}{Descrizione classe 1}
-    \classdesc{Classe 2}{Descrizione classe 2}
+    \classdesc{NLP}{Classe principale di \textit{model}, rappresenta una configurazione NLP. Le altre classi sono dei componenti di questa. Il metodo principale è "to\_string", che trasforma un oggetto NLP nella configurazione per \textit{Engagent}.}
+    \classdesc{Rule}{Rappresenta una singola regola. Comprende il commento della regola, i \textit{match}, le domande e le risposte.}
+    \classdesc{Synset}{Rappresenta un singolo synset. \'E composta da un titolo, alcuni valori di configurazione e i sinonimi.}
+    \classdesc{Match}{Rappresenta un singolo match di una regola. \'E composta da un insieme di categorie, la priorità del match e un titolo.}
 \end{namespacedesc}
 
+\subsubsection{builders} %**************************
+Le classi in \textit{builders} permettono di creare un oggetto NLP, senza preoccuparsi della logica di implementazione. Attraverso il design pattern \textit{abstract method}, è possibile derivare la classe NLPBuilder, per creare builders che lavorano con formati diversi da JSON e XLSX.
+
+\begin{namespacedesc}
+    \classdesc{NLPBuilder}{Classe astratta per la creazione di un NLP. Contiene la logica principale di creazione delle configurazioni. Le classi che estendono questa classe devono solamente implementare i metodi astratti per standardizzare l'input (come definito nei commenti al codice e nel manuale dello sviluppatore).}
+    \classdesc{NLPBuilderXLSX}{Classe che estende NLPBuilder. Standardizza l'input nel formato xlsx (excel).}
+    \classdesc{NLPBuilderJSON}{Classe che estende NLPBuilder. Standardizza l'input nel formato json.}
+\end{namespacedesc}
+
+\subsubsection{utils} %**************************
+Contiene moduli e classi di utilità.
+
+\begin{namespacedesc}
+    \classdesc{SynsetGenerator}{Permette la creazione di sinonimi a partire da una parola qualsiasi. Contiene gli algoritmi più importanti dell'applicazione per \company}
+    \classdesc{Utils}{Modulo che contiene funzioni di utilità, utilizzate da più classi non dipendenti tra di loro.}
+    \classdesc{NLPStemmer}{Esegue lo stemming su un oggetto di tipo NLP.}
+\end{namespacedesc}
+
+\subsubsection{interface} %**************************
+Interfaccia dell'applicazione per l'utente. Permette l'interazione programmatica e a linea di comando.
+
+\begin{namespacedesc}
+    \classdesc{api}{Permette l'interazione programmatica con l'applicazione}
+    \classdesc{cli}{Permette l'interazione a linea di comando con l'applicazione}
+\end{namespacedesc}
+
+\subsubsection{exceptions} %**************************
+Eccezioni personalizzate per l'applicazione.
+
+\begin{namespacedesc}
+    \classdesc{EmptyCategoryException}{Durante l'esecuzione del programma, è stata trovata una categoria vuota.}
+    \classdesc{EmptySynonymException}{Durante l'esecuzione del programma, è stato trovato un sinonimo vuoto.}
+\end{namespacedesc}
 
 %**************************************************************
 \section{Design Pattern utilizzati}
+L'applicazione è stata sviluppata utilizzando i seguenti design pattern:
+\begin{itemize}
+    \item Builder Pattern: la creazione di un oggetto NLP può essere complicata, perché composta da almeno quattro componenti diverse. Il builder pattern permette di semplificare questo compito, rendendo di conseguenza le classi in \textit{model} meno complesse;
+    \item Abstract Pattern: permette di aggiungere nuovi formati in input all'applicazione senza dover riscrivere l'intera logica di creazione dell'NLP.
+\end{itemize}  
 
 %**************************************************************
 \section{Codifica}
+La codifica si è intervallata con periodi di progettazione di dettaglio e analisi delle nuove richieste del tutor.
+Per ogni nuova componente da sviluppare, ho seguito questi passaggi:
+\begin{itemize}
+    \item analisi e progettazione di dettaglio del problema;
+    \item ricerca di soluzioni già esistenti per questo problema;
+    \item codifica e sviluppo di test di unità specifici;
+    \item esecuzione di tutti i test di unità e risoluzione di eventuali \textit{bug};
+    \item verifica da parte del tutor aziendale;
+    \item risoluzione di eventuali errori logici.
+\end{itemize}

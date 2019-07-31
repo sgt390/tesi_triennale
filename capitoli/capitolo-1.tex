@@ -24,8 +24,8 @@ PAT concretizza quesi obbiettivi attraverso i seguenti prodotti:
 \end{itemize}
 
 \subsubsection{Engagent}
-Engagent è una chatbot orientata al business, con un agente virtuale integrato.\\
-In \textit{backend}, un motore semantico permette di capire cosa sta chiedendo l'utente e trovare la risposta più coerente. Se la domanda è troppo complessa, il motore semantico estrate la categoria della domanda e la reinderizza all'operatore (umano) adeguato.\\
+
+Engagent è una chatbot orientata al business, con un agente virtuale integrato. In \textit{backend}, un motore semantico permette di capire cosa sta chiedendo l'utente e trovare la risposta più coerente. Se la domanda è troppo complessa, il motore semantico estrate la categoria della domanda e la reinderizza all'operatore adeguato.
 
 \subsection{Organizzazione e Metodo di lavoro}
 L'azienda è divisa in più gruppi di lavoro, uno per ogni macro-progetto, oltre alla segreteria e direzione.\\
@@ -39,15 +39,15 @@ Per quanto mi rigurarda, ho adottato senza difficoltà queste metodologie, perch
 
 \subsection{Ambiente di lavoro}
 L'ambiente di lavoro utilizzato è Windows 10, assieme al pacchetto office per la maggior parte delle attività.\\
-I team di sviluppo hanno libera scelta sugli editor. Ho scelto Visual studio, per la sua flessibilità.\\
+I team di sviluppo hanno libera scelta sugli editor. Per la codifica e la stesura dei docuemnti, ho scelto Visual studio. Per la creazione di diagrammi UML, ho utilizzato Astah UML.\\
 Ogni sviluppatore ha a disposizione un PC fisso e un portatile per le riunioni.
 
 \subsection{Test}
-I test vengno eseguiti su più livelli:
+Le tecnologie utilizzate per eseguire i test sono:
 \begin{itemize}
-    \item \textbf{test di Engagent:} test di accettazione e di sistema. Viene verificato che il motore semantico funzioni correttamente;
+    \item \textbf{Engagent:} test di accettazione e di sistema. Viene verificato che il motore semantico funzioni correttamente con la configurazione generata;
     \item \textbf{Postman:} test di integrazione. Permette di generare delle richieste http alle API sviluppate;
-    \item \textbf{pytest:} test di unità e integrazione. Ambiente di test specifico di Python. Tramite pytest-cov, permette di calcolare il code coverage;
+    \item \textbf{nose:} test di unità e integrazione. Ambiente di test specifico di Python. L'estensione nose-cov permette di calcolare il code coverage;
     \item \textbf{pylint:} analisi statica del codice. Test statici per Python;
 \end{itemize}
 
@@ -62,15 +62,6 @@ I test vengno eseguiti su più livelli:
     \item[{\hyperref[cap:analisi-requisiti]{Il terzo capitolo}}] approfondisce nel dettaglio i requisiti del progetto, descrivendo il processo di analisi che ha portato alla loro stesura;
     
     \item[{\hyperref[cap:progettazione-codifica]{Il quarto capitolo}}] approfondisce l'architettura del software sviluppato, con il supporto di esempi specifici e schemi ad alto livello;
-    
-    \item[{\hyperref[cap:verifica-validazione]{Il quinto capitolo}}] approfondisce le tecniche di verifica e validazione utilizzate durante lo stage, con i relativi risultati;
-    
-    \item[{\hyperref[cap:conclusioni]{Nel sesto capitolo}}] contiene il resoconto dello stage. 
+        
+    \item[{\hyperref[cap:conclusioni]{Il quinto capitolo}}] contiene il resoconto del progetto e considerazioni personali sullo stage. 
 \end{description}
-
-Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:
-\begin{itemize}
-	\item termini di uso non comune vengono definiti nel glossario, situato alla fine del documento;
-	\item per la prima occorrenza dei termini riportati nel glossario viene utilizzata la seguente nomenclatura: \emph{parola}\glsfirstoccur;
-	\item i termini in lingua straniera o facenti parti del gergo tecnico sono evidenziati con il carattere \emph{corsivo}.
-\end{itemize}
