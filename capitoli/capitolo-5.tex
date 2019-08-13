@@ -9,7 +9,7 @@
 
 %**************************************************************
 \section{Consuntivo}
-Questa sezione descrive i risultati dello stage sotto forma di metriche. Nel complesso, il progetto è stato concluso con successo.
+Questa sezione descrive i risultati dello stage sotto forma di metriche. Nel complesso, il progetto si è concluso positivamente.
 \subsection{Requisiti soddisfatti}
 L'applicazione soddisfa tutti i requisiti\ref{tab:requisiti-funzionali} obbligatori (17/17) e la maggior parte dei requisiti desiderabili (5/6). Il requisito desiderabile non implementato, per questioni di tempo, è RD-6, ovvero esporre l'applicazione attraverso un'API. Implementerò questo requisito in un breve periodo di post-stage in azienda.
 \label{tab:requisiti-resoconto}
@@ -55,22 +55,29 @@ Il \textit{code coverage} è parti all'87\%. I metodi non coperti sono molto sem
     \label{coverage}
 \end{figure}
 \subsubsection*{Analisi statica}
-Durante la codifica, ho utilizzato \textit{pycodestyle} per rispettare lo stile definito da PEP8. Questo ha portato a un codice privo di \textit{warning} rilevati da questa applicazione.
+Durante la codifica, ho utilizzato \textit{pycodestyle} per rispettare lo stile definito da PEP8. Questo ha portato a un codice privo di \textit{warning} da parte di \textit{pycodestyle}, relativi allo stile PEP8.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\columnwidth]{results/nostyle.PNG} 
     \caption{pycodestyle}
     \label{coverage}
 \end{figure}
+
+\subsection{User satisfaction}
+Questa metrica, seppure meno oggettiva delle precedenti, è basata sulla rinione tecnica tenuta con i ricercatori della Zucchetti S.R.L e il tutor aziendale.\\
+L'incontro è avvenuto l'ultima settimana di stage, per capire come integrare {\app} alla loro applicazione. Attraverso dei diagrammi UML, ho spiegato il funzionamento degli algoritmi implementati.\\
+La presentazione si è conclusa con successo. I ricercatori hanno capito come migliorare l'ouptut della loro applicazione, fornito in input a {\app}.\\
+Il tutor aziendale ha apprezzato particolarmente l'automatismo fornito da {\app}. Per questo motivo, ha deciso di integrarlo ad \textit{Engagent} attraverso una REST API.
 %**************************************************************
 \section{Raggiungimento degli obiettivi}
 
 %**************************************************************
 \section{Conoscenze acquisite}
 \begin{itemize}%TODO%
-    \item \textbf{python};
-    \item ho potuto imparare nella pratica come funziona una \textit{software house}, iniziando ad acquisire la professionalità richiesta per questo ambiente;
-    \item ho imparato l'importanza e il ruolo del \textit{pre-processing} dei dati, prima di essere elaborati da un algoritmo di machine learning. Nel mondo reale, i dati sono pochi e preziosi, quindi è necessario sfruttarli al massimo e assicurarsi che l'output dell'algoritmo di \textit{machine learning} sia filtrato e analizzato, prima di essere esposto agli utenti del servizio.\\ Questo si contrappone con l'esperienza universitaria, dove il focus principale viene posto sul metodo, invece che sul risultato.
+    \item gestione di un progetto in \textbf{python}, attraverso ambienti virtuali (per la gestione delle dipendenze) e principali librerie;
+    \item importanza e il ruolo del \textit{pre-processing} dei dati, prima di essere elaborati da un algoritmo di machine learning. Nel mondo reale, i dati sono pochi e preziosi, quindi è necessario sfruttarli al massimo e assicurarsi che l'output dell'algoritmo di \textit{machine learning} sia filtrato e analizzato, prima di essere esposto agli utenti del servizio.\\ Questo si contrappone con l'esperienza universitaria, dove il focus principale viene posto sul metodo, invece che sul risultato.
+    \item presentazione del software orientata a esperti (tecnica) e agli utenti (funzionale).
+    \item ho potuto osservare nella pratica come funziona una \textit{software house} di piccole dimensioni, iniziando ad acquisire la professionalità richiesta per questo ambiente.
 \end{itemize}
 %**************************************************************
 \section{Valutazione personale}
