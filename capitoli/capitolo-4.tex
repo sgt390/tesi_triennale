@@ -53,7 +53,7 @@ Framework di python per la creazione di sinonimi, attraverso dizionari italiani 
 Applicazione per l'estrazione dei lemma dalle parole. Viene adattato in Python attraverso \textit{TreeTaggerWrapper}.
 
 \subsection*{Engagent}
-Piattaforma sviluppata da {\company} formata dalla chatbot, il motre semantico e servizi di supporto. \'E servita per eseguire i test di sistema e accettazione, in quanto target dei file di configurazione generati dalla applicazione sviluppata durante lo stage.
+Piattaforma sviluppata da {\company{}} formata dalla chatbot, il motre semantico e servizi di supporto. \'E servita per eseguire i test di sistema e accettazione, in quanto target dei file di configurazione generati dalla applicazione sviluppata durante lo stage.
 
 \subsection{pip - PyPI}
 \textbf{pip} è un sistema di gestione di pacchetti di Python. Semplifica il processo di installazione, aggiornamento e rimozione di pacchetti Python, attraverso semplici comandi. Permette il tracciamento delle dipendenze utilizzate dal programma. Tramite \textit{pip-env}, è possibile utilizzare un ambiente virtuale per garantire la portabilità dell'applicazione.\\
@@ -65,9 +65,8 @@ Piattaforma sviluppata da {\company} formata dalla chatbot, il motre semantico e
 
 %**************************************************************
 \section{Progettazione}
-%TODO AGGIUNGERE PROGETTAZIONE PIU' SPECIFICA DI OGNI CICLO DI SVILUPPO (MODEL, PRIMO BUILDER, STEMMER ECC.)
 \label{sec:progettazione}
-Durante lo stage, la progettazione è stata inserita all'interno del Manuale dello sviluppatore (documento in possesso di \company). Di seguito riporto tale progettazione, tralasciando però alcuni dettagli di implementazione, come richiesto dal tutor aziendale.
+Durante lo stage, la progettazione è stata inserita all'interno del Manuale dello sviluppatore (documento in possesso di \company{}). Di seguito ho riportato tale progettazione, tralasciando però alcuni dettagli di implementazione, come richiesto dal tutor aziendale.
 
 \subsection{Struttura dell'applicazione}
 \begin{figure}[H]
@@ -77,8 +76,9 @@ Durante lo stage, la progettazione è stata inserita all'interno del Manuale del
     \label{logo:company}
 \end{figure}
 
-\subsubsection{model} %**************************
+\subsubsection{model}\label{sec:progettazione:model} %**************************
 Le classi in \glsfirstoccur{model} rappresentano una configurazione \textit{NLP}.
+Il \textbf{model} ha richiesto lo studio approfondito del motore semantico di \textit{Engagent}, in particolare i suoi file di configurazione. Ho progettato questo \textit{package} includendo tutte le informazioni presenti nel file di configurazione del motore semantico, per facilitare la manutenzione perfettiva del \textit{software}.\\ Tutte le altre funzionalità del programma dipendono da questa (direttamente o indirettamente), per questo motivo le ho dato maggiore priorità. 
 
 \begin{namespacedesc}
     \classdesc{NLP}{Classe principale di \textit{model}, rappresenta una configurazione NLP. Le altre classi sono dei componenti di questa. Il metodo principale è "to\_string", che trasforma un oggetto NLP nella configurazione per \textit{Engagent}.}
@@ -94,7 +94,8 @@ Le classi in \glsfirstoccur{model} rappresentano una configurazione \textit{NLP}
 \end{figure}
 
 \subsubsection{builders} %**************************
-Le classi in \textit{builders} permettono di creare un oggetto NLP, senza preoccuparsi della logica di implementazione. Attraverso il design pattern \textit{abstract method}, è possibile derivare la classe NLPBuilder, per creare builders che lavorano con formati diversi da JSON e XLSX.
+Le classi in \textit{builders} permettono di creare un oggetto NLP, senza preoccuparsi della logica di implementazione. Attraverso il design pattern \textit{abstract method}, è possibile derivare la classe NLPBuilder, per creare builders che lavorano con formati diversi da JSON e XLSX.\\
+I builder sono la parte del programma che richiederà di essere estesa per aggiungere nuovi tipi di input (oltre a formati JSON ed Excel). Ho posto particolare attenzione durante la progettazione della classe astratta NLPBuilder, riducendo al minimo la logica richiesta dalle sue implementazioni, commentando nel dettaglio le sue funzioni astratte (con esempi) e dedicandole una sezione dedicata nel manuale.\\
 
 \begin{namespacedesc}
     \classdesc{NLPBuilder}{Classe astratta per la creazione di un NLP. Contiene la logica principale di creazione delle configurazioni. Le classi che estendono questa classe devono solamente implementare i metodi astratti per standardizzare l'input (come definito nei commenti al codice e nel manuale dello sviluppatore).}
@@ -108,6 +109,7 @@ Nel diagramma è stato inserito anche il package \textit{model} per specificare 
     \caption{builders}
     \label{logo:company}
 \end{figure}
+
 \subsubsection{utils} %**************************
 Contiene moduli e classi di utilità.
 
@@ -144,13 +146,13 @@ L'applicazione è stata sviluppata utilizzando i seguenti design pattern:
 \begin{itemize}
     \item \textbf{Builder Pattern:} la creazione di un oggetto NLP può essere complicata, perché composta da almeno quattro componenti diverse. Il builder pattern permette di semplificare questo compito, rendendo di conseguenza le classi in \textit{model} meno complesse;
     \item \textbf{Abstract Pattern:} permette di aggiungere nuovi formati in input all'applicazione senza dover riscrivere l'intera logica di creazione dell'NLP.
-\end{itemize}  
+\end{itemize}
 
 %**************************************************************
-\section{Codifica}
+\section{Codifica}\label{sec:codifica}
 \subsection{Task della codifica}
-La codifica è stata intervallata con periodi di progettazione e analisi delle nuove richieste del tutor.
-Per ogni nuova componente da sviluppare, ho seguito questi passaggi:
+La codifica è stata intervallata da periodi di progettazione e analisi delle nuove richieste del tutor.\\
+Per ogni nuova componente da implementare, ho seguito questi passaggi:
 \begin{itemize}
     \item analisi e progettazione di dettaglio del problema;
     \item ricerca di soluzioni già esistenti per questo problema;
@@ -177,7 +179,8 @@ Per facilitare il lavoro di chi dovrà manutenere il progetto, ho seguito le lin
     \end{lstlisting}
     \item le variabili private iniziano con un doppio underscore '\_\_';
     \item le variabili protette iniziano con un singolo underscore '\_';
-    \item le variabili sono scritte interamente in minuscolo, variabili composte da più parole sono seprarate da underscore (esempio: get\_name)
+    \item le variabili sono scritte interamente in minuscolo, variabili composte da più parole sono seprarate da underscore;
+    \item le costanti globali sono scritte in maiuscolo
 \end{itemize}
 
 \subsection{Codice significativo}

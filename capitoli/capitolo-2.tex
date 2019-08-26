@@ -9,14 +9,14 @@
 %**************************************************************
 \section{Il progetto}\label{sec:progetto}
 
-Il progetto è nato dalla necessità dell'azienda \company di automatizzare il processo di configurazione del motore semantico di \emph{Engagent}\glsfirstoccur, il quale richiede la creazione manuale di \emph{synset}\glsfirstoccur e \emph{regole}\glsfirstoccur. Questo processo è economicamente fattibile e vantaggioso finché le dimensioni delle regole create sono ridotte, ma il costo cresce esponenzialmente con l'aumentare delle regole.\\
+Il progetto è nato dalla necessità dell'azienda \company{} di automatizzare il processo di configurazione del motore semantico di \emph{Engagent}\glsfirstoccur, il quale richiede la creazione manuale di \emph{synset}\glsfirstoccur e \emph{regole}\glsfirstoccur. Questo processo è economicamente fattibile e vantaggioso finché le dimensioni delle regole create sono ridotte, ma il costo cresce esponenzialmente con l'aumentare delle regole.\\
 Più regole rendono più precisa la chatbot, ma incrementano di conseguenza i \glsfirstoccur{synset} da inserire, prolungando i tempi di compilazione del'\emph{NLP}\glsfirstoccur da qualche giorno a settimane.\\
-Per risolvere questo problema, \company ha scomposto il processo nei seguenti \textit{task} da automatizzare:
+Per risolvere questo problema, \company{} ha scomposto il processo nei seguenti \textit{task} da automatizzare:
 \begin{enumerate}
-    \item creazione delle \emph{regole}\glsfirstoccur;
-    \item creazione dei synset;
-    \item raffinamento dei risultati;
-    \item creazione del file di configurazione \emph{NLP} per il motore semantico;
+    \item \textbf{creazione delle \emph{regole}\glsfirstoccur};
+    \item \textbf{creazione dei synset};
+    \item \textbf{raffinamento dei risultati};
+    \item \textbf{creazione del file di configurazione \emph{NLP} per il motore semantico};
 \end{enumerate}
 
 \subsection{Creazione delle regole}\label{creazione_regole}
@@ -24,10 +24,10 @@ Questo task è il più difficile da automatizzare, perché richiede la definizio
 La soluzione è stata trovata nell'intelligenza artificiale, più in particolare nel clustering. Tramite l'analisi di \emph{chat} e \textit{FAQs} archiviate, è possibile generare delle regole allo stato grezzo.\\
 Il problema è la bassa affidabilità dei risultati. Possibili soluzioni:
 \begin{itemize}
-    \item più dati in input (poco realizzabile nel breve periodo);
-    \item algoritmo più complesso (in lavorazione);
-    \item raffinamento manuale dei risultati. Richiede meno tempo di creare l'NLP da zero, soluzione più semplice nel breve termine; 
-    \item raffinamento automatico dei risultati (tramite \emph{POS-tagging}). Buon compromesso tra il raffinamento manuale e le altre due soluzioni.
+    \item \textbf{più dati in input:} non realizzabile nel breve periodo;
+    \item \textbf{algoritmo più complesso:} task attribuito a ricercatori esterni all'azienda;
+    \item \textbf{raffinamento manuale dei risultati:} richiede meno tempo rispetto alla creazione dell'NLP da zero. Questa soluzione è la più semplice nel breve periodo; 
+    \item \textbf{raffinamento automatico dei risultati:} buon compromesso tra il raffinamento manuale e le altre due soluzioni (uno degli obiettivi dello stage).
 \end{itemize}
 
 \subsection{Creazione dei synset}
@@ -40,12 +40,12 @@ I risultati dell'algoritmo di clustering devono essere ripuliti da \emph{stop-wo
 Adattamento dell'output dell'algoritmo di clustering al motore semantico di Engagent.
 
 %**************************************************************
-\section{Obbiettivi Aziendali}
-L'obbiettivo di automatizzare il processo di configurazione di Engagent non è nato con il progetto di stage, ma qualche anno fa, mentre il \textit{Machine Learning} diventava sempre più popolare. L'azienda attribuì questo compito a un team esterno. Il loro compito consisteva nel sviluppare un algoritmo di \textit{ML}, per la generazione di cluster contenenti gli ingredienti essenziali alla configurazione del loro motore semantico.\\
-Verso l'inizio dell'anno, i progressi fatti da questo team erano convincenti, quindi \company aveva l'intenzione di sperimentare l'integrazione di tali risultati con il proprio sistema.
+\section{Obiettivi Aziendali}
+L'obiettivo di automatizzare il processo di configurazione di Engagent non è nato con il progetto di stage, ma qualche anno fa, mentre il \textit{Machine Learning} diventava sempre più popolare. L'azienda attribuì questo compito a un team esterno. Il loro compito consisteva nell'implementazione di un algoritmo di \textit{ML}, per la generazione di cluster contenenti gli ingredienti essenziali alla configurazione del loro motore semantico.\\
+Verso l'inizio dell'anno, i progressi fatti da questo team erano convincenti, quindi \company{} aveva l'intenzione di sperimentare l'integrazione di tali risultati con il proprio sistema.
 
 %**************************************************************
-\section{Obbiettivi personali}
+\section{Obiettivi personali}
 
 Durante la ricerca dell'azienda per lo stage, volevo contribuire a un progetto software in ambito professionale, facendo contemporaneamente i primi passi nel mondo delle intelligenze artificiali.\\
 Il progetto proposto da PAT racchiudeva queste prerogative: sarei stato inserito in un progetto maturo e, con l'aiuto di esperti nel settore, avrei potuto lavorare con degli algoritmi di clustering.   
@@ -56,12 +56,43 @@ Con l'aiuto del tutor aziendale, ho redatto il piano di lavoro, che comprende 31
 La pianificazione ha avuto delle modifiche durante l'avanzare del progetto, vista la sua natura "sperimentale". Per esempio, il linguaggio di programmazione Python è stato accordato assieme al tutor aziendale solamente dopo un'analisi approfondita del problema.
 Di seguito viene riportata l'ultima versione del piano di lavoro.
 \begin{itemize}
-    \item \textbf{I settimana:} studio della piattaforma \emph{Engagent};
-    \item \textbf{II settimana:} analisi e stesura del report riguradante il problema descritto in \ref{sec:progetto};
-    \item \textbf{III settimana:} ricerca e sperimentazione di possibili soluzioni già esistenti per automatizzare la generazione di sinonimi; analisi e progettazione dell' applicazione NLP-Generator;
-    \item \textbf{IV settimana:} preparazione dell'ambiente di lavoro; codifica di NLP-Generator; stesura di test di unità;
-    \item \textbf{V settimana:} codifica e miglioramento delle prestazioni di \emph{NLP-Generator}; verfica dei risultati di \emph{NLP-generator} da parte del tutor aziendale
-    \item \textbf{VI settimana:} analisi sul miglioramento dei risultati di \emph{NLP-Generator} e codifica; documentazione;
-    \item \textbf{VII settimana:} documentazione e validazione;
-    \item \textbf{VIII settimana:} collaudo.
+    \item \textbf{I settimana:}
+    \begin{itemize}
+        \item studio della piattaforma \emph{Engagent};
+    \end{itemize}
+    \item \textbf{II settimana:}
+    \begin{itemize}
+        \item analisi e stesura di un report, riguradante il problema della creazione automatica del file di configurazione\ref{sec:progetto};
+        \item preparazione dell'ambiente di lavoro;
+    \end{itemize}
+    \item \textbf{III settimana:}
+        \begin{itemize}
+            \item ricerca e sperimentazione di possibili soluzioni già esistenti per automatizzare la generazione di sinonimi;
+            \item analisi e progettazione (al alto livello) di \app{};
+            \item progettazione di dettaglio e implementazione del model\ref{sec:progettazione:model};
+        \end{itemize}
+    \item \textbf{IV settimana:}
+    \begin{itemize}
+        \item implementazione di \app{};
+        \item stesura di test di unità;
+    \end{itemize}
+    \item \textbf{V settimana:}
+    \begin{itemize}
+        \item implementazione e miglioramento delle prestazioni di \emph{\app{}};
+        \item verfica dei risultati di \emph{\app{}} da parte del tutor aziendale;
+    \end{itemize}
+    \item \textbf{VI settimana:}
+    \begin{itemize}
+        \item analisi per il miglioramento dei risultati di \emph{\app{}}
+        \item progettazione di dettaglio e implementazione;
+        \item documentazione;
+    \end{itemize}
+    \item \textbf{VII settimana:}
+    \begin{itemize}
+        \item documentazione e validazione;
+    \end{itemize}
+    \item \textbf{VIII settimana:}
+    \begin{itemize}
+        \item collaudo.
+    \end{itemize}
 \end{itemize}

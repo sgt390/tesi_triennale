@@ -10,8 +10,10 @@
 %**************************************************************
 \section{Consuntivo}
 Questa sezione descrive i risultati dello stage sotto forma di metriche. Nel complesso, il progetto si è concluso positivamente.
-\subsection{Requisiti soddisfatti}
-L'applicazione soddisfa tutti i requisiti\ref{tab:requisiti-funzionali} obbligatori (17/17) e la maggior parte dei requisiti desiderabili (5/6). Il requisito desiderabile non implementato, per questioni di tempo, è RD-6, ovvero esporre l'applicazione attraverso un'API. Implementerò questo requisito in un breve periodo di post-stage in azienda.
+
+\subsection{Requisiti} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Risultato: Passato}\\
+L'applicazione soddisfa tutti i requisiti obbligatori (funzionali e vincolo)\ref{tab:requisiti-funzionali} (19/19) e metà dei requisiti desiderabili (2/4). I requisiti desiderabili non implementati, per questioni di tempo, sono RD-3 e RD-4\ref{tab:requisiti-funzionali-fine}, ovvero l'esposizione dell'applicazione attraverso un'API e la generazione delle informazioni di compilazione. Implementerò questi requisiti in un breve periodo di post-stage in azienda.
 \label{tab:requisiti-resoconto}
 \begin{longtable}{|l l|}
 \caption{requisiti soddisfatti}\\
@@ -19,42 +21,66 @@ L'applicazione soddisfa tutti i requisiti\ref{tab:requisiti-funzionali} obbligat
 \textbf{Requisito} & \textbf{Risultato} \\
 \hline
 \endhead
-RO-1     & soddisfatto\\
-RO-2     & soddisfatto\\
-RO-3     & soddisfatto\\
-RO-3.1   & soddisfatto\\
-RO-3.2   & soddisfatto\\
-RO-3.3   & soddisfatto\\
-RO-3.4   & soddisfatto\\
-RO-4     & soddisfatto\\
-RO-4.1   & soddisfatto\\
-RO-4.2   & soddisfatto\\
-RO-4.3   & soddisfatto\\
-RO-4.4   & soddisfatto\\
-RO-4.5   & soddisfatto\\
-RO-4.6   & soddisfatto\\
-RO-5     & soddisfatto\\
-RO-6     & soddisfatto\\
-RO-7     & soddisfatto\\
-RD-1     & soddisfatto\\
-RD-2     & soddisfatto\\
-RD-3     & soddisfatto\\
-RD-4     & soddisfatto\\
-RD-5     & soddisfatto\\
-RD-6     & non soddisfatto\\
+ROF-1     & soddisfatto\\
+ROF-2     & soddisfatto\\
+ROF-3     & soddisfatto\\
+ROF-3.1   & soddisfatto\\
+ROF-3.2   & soddisfatto\\
+ROF-3.3   & soddisfatto\\
+ROF-3.4   & soddisfatto\\
+ROF-4     & soddisfatto\\
+ROF-4.1   & soddisfatto\\
+ROF-4.2   & soddisfatto\\
+ROF-4.3   & soddisfatto\\
+ROF-4.4   & soddisfatto\\
+ROF-4.5   & soddisfatto\\
+ROF-5     & soddisfatto\\
+RDF-1     & soddisfatto\\
+RDF-2     & soddisfatto\\
+RDF-3     & non soddisfatto\\
+RDF-4     & non soddisfatto\\
+ROV-1     & soddisfatto\\
+ROV-2     & soddisfatto\\
+ROV-3     & soddisfatto\\
+ROV-4     & soddisfatto\\
 \hline
 \end{longtable}
 
-\subsection{Metriche del codice}
-\subsubsection*{Code coverage}
+Il seguente grafico rappresenta la relazione tra requisiti totali soddisfatti e requisiti non soddisfatti.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{results/req_total.png}
+    \caption{Requisiti soddisfatti}
+    \label{img:req_soddisfatti}
+\end{figure}
+
+Il seguente grafico rappresenta la relazione tra requsiti soddisfatti e non soddisfatti, separati per desiderabili e obbligatori.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{results/req_sod.png}
+    \caption{Requisiti totali}
+    \label{img:req_totali}
+\end{figure}
+
+\subsection{Metriche del codice} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Code coverage} %
+\textbf{Risultato: Passato}\\
 Il \textit{code coverage} è parti all'87\%. I metodi non coperti sono molto semplici e non necessitano di essere testati. 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\columnwidth]{results/coverage.PNG} 
+    \includegraphics[width=0.9\columnwidth]{results/coverage.PNG} 
     \caption{code coverage}
     \label{coverage}
 \end{figure}
-\subsubsection*{Analisi statica}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{results/test_pie.png} 
+    \caption{Test di unità e integrazione}
+    \label{img:unittests}
+\end{figure}
+
+\subsubsection{Analisi statica} %
+\textbf{Risultato: Passato}\\
 Durante la codifica, ho utilizzato \textit{pycodestyle} per rispettare lo stile definito da PEP8. Questo ha portato a un codice privo di \textit{warning} da parte di \textit{pycodestyle}, relativi allo stile PEP8.
 \begin{figure}[H]
     \centering
@@ -63,17 +89,19 @@ Durante la codifica, ho utilizzato \textit{pycodestyle} per rispettare lo stile 
     \label{coverage}
 \end{figure}
 
-\subsection{User satisfaction}
-Questa metrica, seppure meno oggettiva delle precedenti, è basata sulla rinione tecnica tenuta con i ricercatori della Zucchetti S.R.L e il tutor aziendale.\\
+\subsection{User satisfaction} %%%%%%%%%%%%%%%%%%%
+\textbf{Risultato: Passato}\\
+Questa metrica, seppure meno oggettiva delle precedenti, è basata sulla riunione tecnica tenuta con i ricercatori della Zucchetti S.R.L e il tutor aziendale.\\
 L'incontro è avvenuto l'ultima settimana di stage, per capire come integrare {\app} alla loro applicazione. Attraverso dei diagrammi UML, ho spiegato il funzionamento degli algoritmi implementati.\\
 La presentazione si è conclusa con successo. I ricercatori hanno capito come migliorare l'ouptut della loro applicazione, fornito in input a {\app}.\\
 Il tutor aziendale ha apprezzato particolarmente l'automatismo fornito da {\app}. Per questo motivo, ha deciso di integrarlo ad \textit{Engagent} attraverso una REST API.
+
 %**************************************************************
 \section{Raggiungimento degli obiettivi}
 
 %**************************************************************
 \section{Conoscenze acquisite}
-\begin{itemize}%TODO%
+\begin{itemize}
     \item gestione di un progetto in \textbf{python}, attraverso ambienti virtuali (per la gestione delle dipendenze) e principali librerie;
     \item importanza e il ruolo del \textit{pre-processing} dei dati, prima di essere elaborati da un algoritmo di machine learning. Nel mondo reale, i dati sono pochi e preziosi, quindi è necessario sfruttarli al massimo e assicurarsi che l'output dell'algoritmo di \textit{machine learning} sia filtrato e analizzato, prima di essere esposto agli utenti del servizio.\\ Questo si contrappone con l'esperienza universitaria, dove il focus principale viene posto sul metodo, invece che sul risultato.
     \item presentazione del software orientata a esperti (tecnica) e agli utenti (funzionale).
