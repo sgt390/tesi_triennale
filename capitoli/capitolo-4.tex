@@ -185,8 +185,8 @@ Per facilitare il lavoro di chi dovrà manutenere il progetto, ho seguito le lin
 
 \subsection{Codice significativo}
 
-Di seguito, ho riportato degli esempi di codice significativo.
-\subsubsection*{Implementazione di abstract method}
+Di seguito, ho riportato alcuni esempi di codice significativo.
+\subsubsection*{Implementazione dell' \textit{abstract method pattern}}
 L'\textit{abstract method pattern} è stato utilizzato nella classe NLPBuilder. Il ruolo dei metodi astratti è lasciare alle classi derivate il compito di implementare la logica di trasformazione dell'input in un formato standard. Questo è il minimo neccessario richiesto per implementare un nuovo builder (per un nuovo formato di input).
 \newline\newline
 L'implmenetazione del metodo \textit{load\_input\_data} richiede la creazione di una variabile contenente il contenuto del file di input. Questa variabile verrà utilizzata solamente dalle implementazioni degli altri metodi astratti, quindi non è predefinita.
@@ -200,8 +200,8 @@ L'implmenetazione del metodo \textit{load\_input\_data} richiede la creazione di
         """
         pass
 \end{lstlisting}
-Il metodo \textit{\_flatten\_words} estrae le categorie dall'input definito in \textit{load\_input\_data}. Gli altri metodi astratti definiti in NLPBuilder seguono una logica simile.
-\begin{lstlisting}
+Il metodo \textit{\_flatten\_words} estrae le categorie dall'input definito in \textit{load\_input\_data}.
+\begin{lstlisting}[language=python]
     @abstractmethod
     def _flatten_words(self) -> list:
         """Flatten a list of categories in the input variable defined by load_input_data.
@@ -210,4 +210,31 @@ Il metodo \textit{\_flatten\_words} estrae le categorie dall'input definito in \
             words {list} -- of categories. E.g. ['dog','cat',plain','airplain']
         """
         pass
+\end{lstlisting}
+Gli altri metodi astratti definiti in NLPBuilder seguono una logica simile.
+
+\subsubsection*{Implementazione del \textit{builder pattern}}
+Il metodo principale del \textit{builder} è il seguente. Questo inizializza i due tipi di regole (se richiesti), crea le regole, i \textit{synset} e alla fine l'oggetto di configurazione NLP; se richiesto, viene applicato lo stemming.  
+\begin{lstlisting}[language=python]
+def build(self) -> NLP:
+    """Create a new NLP object.
+
+    Returns:
+        {NLP} -- new NLP object
+    """
+    intent_rules, cluster_rules = None, None
+    if self.__with_cluster_rules:
+        cluster_rules = self._initialize_cluster_rules()
+    if self.__with_intent_rules:
+        intent_rules = self._initialize_intent_rules()
+    rules = self.__rule_builder.make_rules(
+        cluster_rules=cluster_rules, intent_rules=intent_rules)
+
+    synsets = self.__synset_builder.build()
+    nlp = NLP(domain=self.__domain, version=self.__version,
+                language=self.__language, tagger=self.__tagger,
+                synsets=synsets, match_rules=rules)
+                
+    if self.__stem:
+        nlp = self.stemmer.stem(nlp)
 \end{lstlisting}

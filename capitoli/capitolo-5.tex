@@ -65,7 +65,7 @@ Il seguente grafico rappresenta la relazione tra requsiti soddisfatti e non sodd
 \subsection{Metriche del codice} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Code coverage} %
 \textbf{Risultato: Passato}\\
-Il \textit{code coverage} è parti all'87\%. I metodi non coperti sono molto semplici e non necessitano di essere testati. 
+Il \textit{code coverage} è parti all'87\%, superiore dell'80\% richiesto dal requisito ROV-4\ref{tab:requisiti-vincolo}. I metodi non coperti sono molto semplici e non necessitano di essere testati.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\columnwidth]{results/coverage.PNG} 
@@ -81,7 +81,7 @@ Il \textit{code coverage} è parti all'87\%. I metodi non coperti sono molto sem
 
 \subsubsection{Analisi statica} %
 \textbf{Risultato: Passato}\\
-Durante la codifica, ho utilizzato \textit{pycodestyle} per rispettare lo stile definito da PEP8. Questo ha portato a un codice privo di \textit{warning} da parte di \textit{pycodestyle}, relativi allo stile PEP8.
+Durante la codifica, ho utilizzato \textit{pycodestyle} per rispettare lo stile definito da PEP8, come da metrica ROV-5\ref{tab:requisiti-vincolo}. Questo ha portato a un codice privo di \textit{warning} da parte di \textit{pycodestyle}, relativi allo stile PEP8.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\columnwidth]{results/nostyle.PNG} 
@@ -105,7 +105,12 @@ Il tutor aziendale ha apprezzato particolarmente l'automatismo fornito da {\app}
     \item gestione di un progetto in \textbf{python}, attraverso ambienti virtuali (per la gestione delle dipendenze) e principali librerie;
     \item importanza e il ruolo del \textit{pre-processing} dei dati, prima di essere elaborati da un algoritmo di machine learning. Nel mondo reale, i dati sono pochi e preziosi, quindi è necessario sfruttarli al massimo e assicurarsi che l'output dell'algoritmo di \textit{machine learning} sia filtrato e analizzato, prima di essere esposto agli utenti del servizio.\\ Questo si contrappone con l'esperienza universitaria, dove il focus principale viene posto sul metodo, invece che sul risultato.
     \item presentazione del software orientata a esperti (tecnica) e agli utenti (funzionale).
-    \item ho potuto osservare nella pratica come funziona una \textit{software house} di piccole dimensioni, iniziando ad acquisire la professionalità richiesta per questo ambiente.
+    \item ho potuto osservare nella pratica come funziona una \textit{software house} di piccole dimensioni, iniziando ad acquisire la professionalità richiesta per questo ambiente;
 \end{itemize}
 %**************************************************************
 \section{Valutazione personale}
+Prima di iniziare lo stage, sapevo che avrei voluto continuare il mio percorso di studi con la Laurea Magistrale, quindi ho considerato questa esperienza come un mezzo per imparare qualcosa di nuovo, invece di applicare banalmente quello che ho imparato negli anni.\\
+Ho pututo, per la prima volta, partecipare a dei colloqui di lavoro, qualcosa di cui ho sempre avuto timore, ma che ho imparato a gestire fin da subito.\\
+Lavorare in gruppo è sempre stato un mio limite, che ritengo di aver superato grazie ai progetti svolti durante l'ultimo anno di triennale e ovviamente con lo stage. Nella maggior parte delle situazioni, unire le conoscenze per svolgere un singolo compito può velocizzare considerevolmente il lavoro, sopratutto durante la codifica (ad esempio con il peer programming, attuato giornalmente durante il progetto di Ingegneria del Software, per le parti più delicate dell'applicazione) e durante l'analisi e progettazione del software (durante lo stage, le sezioni di brain storming con i colleghi erano frequenti e portavano ottimi risultati).\\
+Dopo la fine dello stage, ho svolto un periodo extra per portare il software in produzione, dato che erano soddisfatti del risultato. Durante questo periodo, ho impararato come generare automaticamente i \textit{log} durante l'esecuzione di un programma, quindi ho creato una REST API per renderlo disponibile alla rete aziendale. Questa esperenza di post-stage è qualcosa che non ho potuto sperimentare durante la laurea, ma essenziale in ambiente professionale.\\
+Anche se non ho lavorato direttamente ad un algoritmo di machine learning, ho potuto capire la sua importanza nell'ambito professionale. Le aziende che investono (o intendono investire) in questa tecnologia sono portate ad acquisire sempre più dati dai propri clienti e/o partner, in quanto elemento fondamentale per un buon risultato. \company{} sta migliorando in questo compito, come molte altre aziende che vogliono rimanere competitive in un futuro poco lontano. Vedere quante risorse stanno investendo, mi ha motivato ancora di più a seguire un piano di studi orientato all'intelligenza artificiale: studierò qualcosa che mi piace, richiesto dal mercato e che acquisirà sempre più importanza in futuro.
