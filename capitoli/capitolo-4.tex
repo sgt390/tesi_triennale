@@ -10,15 +10,15 @@
 \section{Framework e tecnologie per lo sviluppo}
 \label{sec:framework}
 \subsection*{Python}
-Python è un linguaggio di programmazione pensato per la ricerca. Per questo linguaggio sono stati sviluppati la maggior parte dei framework che trattano l'intelligenza artificiale (come TensorFlow). Questo vale anche per l'algoritmo di clustering presentato nell'introzione\ref{creazione_regole}.\\
+Python\footcite{site:python} è un linguaggio di programmazione pensato per la ricerca. Per questo linguaggio sono stati sviluppati la maggior parte dei framework che trattano l'intelligenza artificiale (come TensorFlow). Questo vale anche per l'algoritmo di clustering presentato nell'introduzione\riferimento{creazione_regole}.\\
 Assieme al tutor aziendale, abbiamo scelto questo linguaggio per i seguenti motivi:
 \begin{itemize}
-    \item permette di soddisfare il requisito di modularità del codice (requisitio RO-6): il codice prodotto è compatibile con quello dell'algoritmo di clustering;
+    \item permette di soddisfare il requisito di modularità del codice (requisito RO-6): il codice prodotto è compatibile con quello dell'algoritmo di clustering;
     \item possiede dei framework per il pos-tagging e la generazione di sinonimi (NLTK e TreeTagger).;
 \end{itemize}
 
-\subsection*{nose}
-Test di unità e integrazione. Ambiente di test specifico di Python. L'estensione nose-cov permette di calcolare il code coverage.\\
+\subsection*{Nose}
+Nose\footcite{site:nose} è un framework per l'esecuzione di Test di unità e integrazione in Python. L'estensione nose-cov permette di calcolare il code coverage.\\
 Nella maggior parte dei casi, ho utilizzato il tool automatico di \textit{Visual Studio Code} per eseguire i test. Con l'opzione di eseguire i test a ogni salvataggio, è possibile accorgersi subito se sono stati inseriti dei \textit{bug}.
 Per calcolare il \glsfirstoccur{code coverage} è necessario eseguire il seguente comando:
 \begin{lstlisting}
@@ -29,35 +29,36 @@ dove \textit{src} è la cartella contenente il codice.
     \centering
     \includegraphics[width=0.25\columnwidth]{nose.png} 
     \caption{nose}
-    \label{logo:company}
+    \label{logo:nose}
 \end{figure}    
 \subsection*{pycodestyle (pep8) - pylint}
-Analisi statica del codice per Python. Rileva, a ogni salvataggio, errori di formattazione e di stile nel codice. Questi strumenti mi hanno permesso di mantenere un codice pulito, rispetto allo standard \glsfirstoccur{PEP8}. 
+PEP8\footcite{site:pep8} esegue l'analisi statica del codice per Python. Rileva, a ogni salvataggio, errori di formattazione e di stile nel codice. Questo strumento mi ha permesso di mantenere un codice pulito, rispettando lo standard \emph{PEP8}\glsfirstoccur{}. 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.3\columnwidth]{pylint.png} 
-    \caption{Agile}
-    \label{logo:company}
+    \caption{Pylint}
+    \label{logo:pylint}
 \end{figure}
 
-\subsection*{NLTK}
-Framework di python per la creazione di sinonimi, attraverso dizionari italiani e inglese.
+\subsection*{NLTK - Wordnet}
+NLTK\footcite{site:nltk} è un framework di Python per processare il linguaggio umano, attraverso dizionari in diverse lingue.\\
+Wordnet\footcite{site:wordnet} è una libreria di NLTK, per l'estrazione dei sinonimi dalle parole.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.2\columnwidth]{nltk.png} 
     \caption{NLTK}
-    \label{logo:company}
+    \label{logo:nltk}
 \end{figure}
 
 \subsection*{TreeTagger}
-Applicazione per l'estrazione dei lemma dalle parole. Viene adattato in Python attraverso \textit{TreeTaggerWrapper}.
+TreeTagger\footcite{site:treetagger} è un'applicazione per l'estrazione dei lemma dalle parole. \textit{TreeTaggerWrapper}\footcite{site:twrapper} permette l'utilizzo di questa applicazione in modo programmatico in Python.
 
 \subsection*{Engagent}
-Piattaforma sviluppata da {\company{}} formata dalla chatbot, il motre semantico e servizi di supporto. \'E servita per eseguire i test di sistema e accettazione, in quanto target dei file di configurazione generati dalla applicazione sviluppata durante lo stage.
+Engagent\footcite{site:engagent} è una piattaforma sviluppata da \company{} formata dalla chatbot, il motore semantico e servizi di supporto. L'ho utilizzata principalmente per eseguire i test di sistema e accettazione, in quanto target dei file di configurazione generati da \app{}.
 
 \subsection{pip - PyPI}
-\textbf{pip} è un sistema di gestione di pacchetti di Python. Semplifica il processo di installazione, aggiornamento e rimozione di pacchetti Python, attraverso semplici comandi. Permette il tracciamento delle dipendenze utilizzate dal programma. Tramite \textit{pip-env}, è possibile utilizzare un ambiente virtuale per garantire la portabilità dell'applicazione.\\
-\textit{pip} mi ha permesso di eseguire eficientemente i seguenti task:
+\textbf{pip}\footcite{site:pypi} è un sistema di gestione di pacchetti di Python. Semplifica il processo di installazione, aggiornamento e rimozione di pacchetti Python, attraverso semplici comandi. Permette il tracciamento delle dipendenze utilizzate dal programma. Tramite \textit{pip-env}, è possibile utilizzare un ambiente virtuale per garantire la portabilità dell'applicazione.\\
+\textit{pip} mi ha permesso di eseguire efficientemente i seguenti task:
 \begin{itemize}
     \item individuazione, installazione e tracciamento dei pacchetti di Python;
     \item installazione dell'applicazione nel server aziendale remoto, contenente il sistema operativo Linux.
@@ -83,11 +84,11 @@ Gli altri package contengono funzionalità di supporto ai primi due:
     \centering
     \includegraphics[width=0.7\columnwidth]{uml/packages.png} 
     \caption{Diagramma dei package}
-    \label{logo:company}
+    \label{logo:pkg}
 \end{figure}
 
 \subsubsection{model}\label{sec:progettazione:model} %**************************
-Le classi in \glsfirstoccur{model} rappresentano una configurazione \textit{NLP}.
+Le classi in \emph{model}\glsfirstoccur{} rappresentano una configurazione \textit{NLP}.
 La progettazione del \textbf{model} mi ha richiesto lo studio approfondito del motore semantico di \textit{Engagent}, in particolare dei suoi file di configurazione. Ho progettato questo \textit{package} includendo tutte le informazioni presenti nel file di configurazione del motore semantico, per facilitare la manutenzione perfettiva del \textit{software}.\\ Tutte le altre funzionalità del programma dipendono da questa (direttamente o indirettamente), per questo motivo le ho dato maggiore priorità. 
 
 \begin{namespacedesc}
@@ -100,12 +101,12 @@ La progettazione del \textbf{model} mi ha richiesto lo studio approfondito del m
     \centering
     \includegraphics[width=0.7\columnwidth]{uml/model.png} 
     \caption{model}
-    \label{logo:company}
+    \label{logo:model}
 \end{figure}
 
 \subsubsection{builders} %**************************
 Le classi in \textit{builders} permettono di creare un oggetto NLP, senza preoccuparsi della logica di implementazione. Attraverso il design pattern \textit{abstract method}, è possibile derivare la classe NLPBuilder, per creare builders che lavorano con formati diversi da JSON e XLSX.\\
-I builder sono la parte del programma che richiederà di essere estesa per aggiungere nuovi tipi di input (oltre a formati JSON ed Excel). Ho posto particolare attenzione durante la progettazione della classe astratta NLPBuilder, riducendo al minimo la logica richiesta dalle sue implementazioni, commentando nel dettaglio le sue funzioni astratte (con esempi) e dedicandole una sezione dedicata nel manuale.\\
+I builder sono la parte del programma da estendere per aggiungere nuovi tipi di input (oltre a formati JSON ed Excel). Ho posto particolare attenzione durante la progettazione della classe astratta NLPBuilder, riducendo al minimo la logica richiesta dalle sue implementazioni, commentando nel dettaglio le sue funzioni astratte (con esempi) e dedicandole una sezione dedicata nel manuale.\\
 
 \begin{namespacedesc}
     \classdesc{NLPBuilder}{Classe astratta per la creazione di un NLP. Contiene la logica principale di creazione delle configurazioni. Le classi che estendono questa classe devono solamente implementare i metodi astratti per standardizzare l'input (come definito nei commenti al codice e nel manuale dello sviluppatore).}
@@ -117,7 +118,7 @@ Nel diagramma è stato inserito anche il package \textit{model} per specificare 
     \centering
     \includegraphics[width=0.7\columnwidth]{uml/build.png} 
     \caption{builders}
-    \label{logo:company}
+    \label{logo:build}
 \end{figure}
 
 \subsubsection{utils} %**************************
@@ -132,7 +133,7 @@ Contiene moduli e classi di utilità.
     \centering
     \includegraphics[width=0.7\columnwidth]{uml/utils.png} 
     \caption{utils}
-    \label{logo:company}
+    \label{logo:utils}
 \end{figure}
 \subsubsection{interface} %**************************
 Interfaccia dell'applicazione per l'utente. Permette l'interazione programmatica e a linea di comando.
@@ -173,7 +174,7 @@ Per ogni nuova componente da implementare, ho seguito questi passaggi:
 \end{itemize}
 
 \subsection{Stile del codice}
-Per facilitare il lavoro di chi dovrà manutenere il progetto, ho seguito le linee guida definite in \textit{PEP8}\footnote{\url{https://www.python.org/dev/peps/pep-0008/}} per la stesura del codice:
+Per facilitare il lavoro di chi dovrà manutenere il progetto, ho seguito le linee guida definite in \textit{PEP8}\footcite{site:pep8} per la stesura del codice:
 \begin{itemize}
     \item i metodi più significativi sono documentati con il seguente commento:
     \begin{lstlisting}
@@ -189,17 +190,17 @@ Per facilitare il lavoro di chi dovrà manutenere il progetto, ho seguito le lin
     \end{lstlisting}
     \item le variabili private iniziano con un doppio underscore '\_\_';
     \item le variabili protette iniziano con un singolo underscore '\_';
-    \item le variabili sono scritte interamente in minuscolo, variabili composte da più parole sono seprarate da underscore;
+    \item le variabili sono scritte interamente in minuscolo, variabili composte da più parole sono separate da underscore;
     \item le costanti globali sono scritte in maiuscolo
 \end{itemize}
 
 \subsection{Codice significativo}
 
 Di seguito, ho riportato alcuni esempi di codice significativo.
-\subsubsection*{Implementazione dell' \textit{abstract method pattern}}
-L'\textit{abstract method pattern} è stato utilizzato nella classe NLPBuilder. Il ruolo dei metodi astratti è lasciare alle classi derivate il compito di implementare la logica di trasformazione dell'input in un formato standard. Questo è il minimo neccessario richiesto per implementare un nuovo builder (per un nuovo formato di input).
+\subsubsection*{Implementazione dell'\textit{abstract method pattern}}
+L'\textit{abstract method pattern} è stato utilizzato nella classe NLPBuilder. Il ruolo dei metodi astratti è lasciare alle classi derivate il compito di implementare la logica di trasformazione dell'input in un formato standard. Questo è il minimo necessario richiesto per implementare un nuovo builder (per un nuovo formato di input).
 \newline\newline
-L'implmenetazione del metodo \textit{load\_input\_data} richiede la creazione di una variabile contenente il contenuto del file di input. Questa variabile verrà utilizzata solamente dalle implementazioni degli altri metodi astratti, quindi non è predefinita.
+L'implementazione del metodo \textit{load\_input\_data} richiede la creazione di una variabile contenente il contenuto del file di input. Questa variabile verrà utilizzata solamente dalle implementazioni degli altri metodi astratti, quindi non è predefinita.
 \begin{lstlisting}[language=python]
     @abstractmethod
     def load_input_data(self, path: str):
