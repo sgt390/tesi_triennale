@@ -23,7 +23,7 @@ L'azienda offre ai suoi clienti l'automatizzazione dei processi e il miglioramen
 PAT concretizza questi obiettivi attraverso i seguenti prodotti:
 \begin{itemize}
     \item Engagent: chatbot semi-automatizzata per uso professionale, l'unico prodotto di \company{} con cui sono entrato in contatto; 
-    \item Helpdesk: service \emph{desk}\glsfirstoccur;
+    \item Helpdesk: \gls{servicedeskg}\glsfirstoccur;
     \item Infinite: \textit{CRM} software orientato alla relazione tra cliente e azienda;
     \item Brain \textit{Interactive}: piattaforma per governare dei servizi personalizzati attraverso dei diagrammi di flusso; 
     \item Teammee: piattaforma per la comunicazione tra i dipendenti in un'azienda, usando la logica dei social networks;
@@ -69,6 +69,17 @@ I linguaggi di programmazione che ho utilizzato sono:
         \item pulizia della cache del programma;
         \item pulizia dei file di output del programma.
     \end{itemize}
+\end{itemize}
+
+\subsection{Natural Language Processing}
+In questo documento ho utilizzato termini riguardanti il \textit{natural language processing}, abbreviato \textit{NLP}.\\ 
+L'NLP è derivato da più settori scientifici, in particolare l'intelligenza artificiale e la linguistica\footcite{site:nlp}. Si occupa dell'interazione tra i linguaggi umani e macchina, ed è usato, per esempio, per lo sviluppo di assistenti vocali\footcite{alexanlu}, correttori del testo, filtri antispam, motori di ricerca del testo\footcite{site:nlpexamples}.\\
+Ho sfruttato l'NLP per eseguire i seguenti \textit{task}:
+\begin{itemize}
+    \item \textbf{lemmatizzazione:} trasformazione della parola nella sua forma base. Durante l'analisi di una frase, è necessario portare tutte le parole a una forma standard (esempio: giocavo -> giocare);
+    \item \textbf{part-of-speech tagging o POS tagging:} analisi grammaticale del testo, attribuendo il giusto tipo a ogni parola (verbo, nome, aggettivo, pronome, articolo). Questo permette di filtrare solo le parti del testo desiderate (ad esempio, rimuovendo tutti gli articoli);
+    \item \textbf{stemming:} estrazione della radice della parola. Come per la lemmatizzazione, permette di rendere ancora più generali i risultati, ma meno precisi. Grazie ai vari esperimenti eseguiti durante il progetto, ho capito che lo \textit{stemming} è particolarmente utile per l'inglese, ma poco efficace con parole italiane;
+    \item \textbf{Parsing:} analisi logica del testo, per individuare soggetto, predicato e complemento. Questo processo ha l'obiettivo di ridurre una frase complessa in una semplice, molto più corta ma con lo stesso significato. Sarebbe il migliore dei \textit{task} ma è difficle trovare un buon parser, in quanto è molto complesso da implementare.
 \end{itemize}
 
 %**************************************************************

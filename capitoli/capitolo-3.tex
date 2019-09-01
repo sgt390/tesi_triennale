@@ -17,7 +17,7 @@ Per risolvere il problema descritto in nella descrizione del progetto\riferiment
 
 \subsection*{Creazione delle regole}\label{creazione_regole}
 Questo task è il più difficile da automatizzare, perché richiede la definizione di \emph{match} contenenti categorie correlate tra loro. Inoltre, non esistono delle regole uguali per tutti, ma ogni settore ha regole diverse.\\
-La soluzione è stata trovata nell'intelligenza artificiale, più in particolare nel clustering. Tramite l'analisi di \emph{chat} e \textit{FAQs}\glsfirstoccur{} archiviate, è possibile generare delle regole allo stato grezzo.\\
+La soluzione è stata trovata nell'intelligenza artificiale, più in particolare nel clustering. Tramite l'analisi di \emph{chat} e \textit{FAQ}\glsfirstoccur{} archiviate, è possibile generare delle regole allo stato grezzo.\\
 Rimane il problema della bassa affidabilità dei risultati. Possibili soluzioni:
 \begin{itemize}
     \item \textbf{più dati in input:} non realizzabile nel breve periodo;
@@ -35,8 +35,8 @@ La creazione dei \emph{synset} è automatizzabile trovando i sinonimi delle cate
 \end{itemize}
 
 \subsection*{Raffinamento dei risultati}
-I risultati dell'algoritmo di clustering devono essere ripuliti da \emph{stop-words}\glsfirstoccur e regole prive di significato.
-Le \textit{stop-words} sono una lista di parole che non possono far parte del modello, definite da \company{}.
+I risultati dell'algoritmo di clustering devono essere ripuliti da \emph{stop words}\glsfirstoccur e regole prive di significato.
+Le \textit{stop words} sono una lista di parole che non possono far parte del modello, definite da \company{}.
 Una regola è significativa quando permette di individuare un gruppo di domande con lo stesso significato. 
 
 \subsection*{creazione del modello NLP}
@@ -119,7 +119,7 @@ I casi d'uso sono aumentati durante tutta la durata dello stage. Durante lo svil
     \begin{itemize}
         \item 4.1 stemming sulle categorie;
         \item 4.2 validazione delle categorie attraverso le domande associate;
-        \item 4.3 rimozione delle stopwords\glsfirstoccur{};
+        \item 4.3 rimozione delle stop words\glsfirstoccur{};
         \item 4.4 creazione di \textit{cluster};
         \item 4.5 creazione di \textit{intent}.
     \end{itemize}
@@ -144,10 +144,10 @@ I casi d'uso sono aumentati durante tutta la durata dello stage. Durante lo svil
     \label{uc:4.2}
 \end{usecase}
 
-\begin{usecase}{4.3}{rimozione delle \textit{stopwords}}
+\begin{usecase}{4.3}{rimozione delle \textit{stop words}}
     \usecaseactors{Utente}
-    \usecasepre{Il sistema mette a disposizione dei comandi per l'attivazione (o disattivazione) del filtro delle \textit{stopwords}. Le stopwords sono delle parole che il sistema deve ignorare durante l'esecuzione del programma.}
-    \usecasedesc{L'utente, tramite CLI, attiva o disattiva il filtro delle stopwords}
+    \usecasepre{Il sistema mette a disposizione dei comandi per l'attivazione (o disattivazione) del filtro delle \textit{stop words}. Le stop words sono delle parole che il sistema deve ignorare durante l'esecuzione del programma.}
+    \usecasedesc{L'utente, tramite CLI, attiva o disattiva il filtro delle stop words}
     \usecasepost{Il sistema permette all'utente di modificare altre funzionalità}
     \label{uc:4.3}
 \end{usecase}
@@ -234,9 +234,9 @@ ROF-3.2   & L'utente può modificare la lingua della configurazione & UC3.2 \\
 ROF-3.3   & L'utente può modificare i prefissi delle regole nella configurazione & UC 3.3\\
 ROF-3.4   & L'utente può modificare le priorità dei match nella configurazione & UC3.4 \\
 ROF-4     & L'utente può attivare o disattivare le funzionalità del programma & UC4 \\
-ROF-4.1   & L'utente eseguire lo \glsfirstoccur{stemming} sulle categorie & UC4.1 \\
+ROF-4.1   & L'utente eseguire lo stemming\glsfirstoccur{} sulle categorie & UC4.1 \\
 ROF-4.2   & Validazione delle categorie, attraverso le frasi associate & UC4.2 \\
-ROF-4.3   & L'utente filtrare le \textit{stopwords} & UC4.3 \\
+ROF-4.3   & L'utente filtrare le \textit{stop words} & UC4.3 \\
 ROF-4.4   & L'utente può creare i \textit{cluster} & UC4.4 \\
 ROF-4.5   & L'utente creare gli \textit{intent} & UC4.5 \\
 ROF-5     & L'utente può creare un file contenente la configurazione & UC5\\

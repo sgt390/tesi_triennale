@@ -28,7 +28,7 @@ pdflatex -output-directory=%BUILD_DIR% %MAIN%
 pdflatex -output-directory=%BUILD_DIR% %MAIN%
 
 
-call clean.bat
+::call clean.bat
 
 @echo ---------------------------- END -----------------------------
 
